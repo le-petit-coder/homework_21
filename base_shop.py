@@ -9,8 +9,8 @@ class Shop(Storage):
         self.max_capacity = max_capacity
         super().__init__(items, capacity)
 
-    def add(self, item: str, capacity: int):
+    def add(self, item: str, quantity: int):
         if self.get_unique_items_count() >= self.max_capacity:
             raise TooManyDifferentProductsError
-        super().add(item, capacity)
+        super().add(item, quantity)
 
