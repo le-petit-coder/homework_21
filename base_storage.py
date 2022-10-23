@@ -11,7 +11,7 @@ class Storage(AbstractStorage):
     def __repr__(self):
         pass
 
-    def add(self, item, quantity) -> None:
+    def add(self, item: str, quantity: int) -> None:  # добавляет новый товар на склад
         if self.get_free_space() < quantity:
             raise NotEnoughSpaceError
         if item in self.__items:
@@ -19,7 +19,7 @@ class Storage(AbstractStorage):
         else:
             self.__items = quantity
 
-    def remove(self, item, quantity):
+    def remove(self, item: str, quantity: int):  # удаляет товар со склада, если возможно
         if item not in self.__items:
             raise ProductUnknownError
         if self.__items[item] < 0:
@@ -28,11 +28,11 @@ class Storage(AbstractStorage):
         if self.__items[item] == 0:
             self.__items.pop(item)
 
-    def get_free_space(self) -> int:
+    def get_free_space(self) -> int:  # возвращает кол-во свободного места
         return self.__capacity - sum(self.__items.values())
 
-    def get_items(self):
+    def get_items(self) -> dict:  # возвращает все товары со склада
         return self.__items
 
-    def get_unique_items_count(self):
+    def get_unique_items_count(self) -> int:  # возвращает кол-во уникальных товаров на складе
         return len(self.__items)

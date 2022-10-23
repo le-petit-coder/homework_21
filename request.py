@@ -5,9 +5,10 @@ from errors import UnknownStorage, WrongRequest
 
 
 class Request:
-    def __init__(self, request: str, storages: Dict[str, AbstractStorage]):
 
+    def __init__(self, request: str, storages: Dict[str, AbstractStorage]):
         request_split: List[str] = request.strip().lower().split(' ')
+
         if len(request_split) != 7:
             raise WrongRequest
 

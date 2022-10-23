@@ -9,7 +9,7 @@ class Courier:
         self.departure: AbstractStorage = storages[self.request.departure]
         self.destination: AbstractStorage = storages[self.request.destination]
 
-    def move(self):
+    def move(self):  # переносит товар с одного места на другой
         self.departure.remove(item=self.request.product, quantity=self.request.quantity)
         print(f"Курьер забирает {self.request.quantity} {self.request.product} из {self.request.departure}")
         self.destination.add(item=self.request.product, quantity=self.request.quantity)

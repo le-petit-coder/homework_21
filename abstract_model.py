@@ -5,11 +5,11 @@ from abc import ABC, abstractmethod
 class AbstractStorage(ABC):
 
     @abstractmethod
-    def add(self, item, quantity):
+    def add(self, item: str, quantity: int):
         pass
 
     @abstractmethod
-    def remove(self, item, quantity):
+    def remove(self, item: str, quantity: int):
         pass
 
     @abstractmethod

@@ -1,3 +1,5 @@
+
+
 class BaseError(Exception):
     message = "Something went wrong"
 
